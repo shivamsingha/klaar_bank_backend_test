@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model banks {
+  name     String?    @db.VarChar(49)
+  id       BigInt     @id
+  branches branches[]
+}
+
+model branches {
+  ifsc     String  @id @db.VarChar(11)
+  bank_id  BigInt?
+  branch   String? @db.VarChar(74)
+  address  String? @db.VarChar(195)
+  city     String? @db.VarChar(50)
+  district String? @db.VarChar(50)
+  state    String? @db.VarChar(26)
+  banks    banks?  @relation(fields: [bank_id], references: [id])
+}
+
+model bank_branches {
+  ifsc      String  @id @db.VarChar(11)
+  bank_id   BigInt?
+  branch    String? @db.VarChar(74)
+  address   String? @db.VarChar(195)
+  city      String? @db.VarChar(50)
+  district  String? @db.VarChar(50)
+  state     String? @db.VarChar(26)
+  bank_name String? @db.VarChar(49)
+}
