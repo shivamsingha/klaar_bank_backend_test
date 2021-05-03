@@ -13,7 +13,7 @@ page||Page number
 #### Example
 **curl**
 ```bash
-curl --location --request GET 'localhost:3000/api/branches/autocomplete?q=Delhi&limit=3&offset=2'
+curl --location --request GET 'https://klaarbanks.shvm.dev/api/branches/autocomplete?q=Delhi&limit=3&offset=2'
 ```
 **Result**
 ```json
@@ -62,7 +62,7 @@ page||Page number
 #### Example
 **curl**
 ```bash
-curl --location --request GET 'localhost:3000/api/branches?q=Bangalore&limit=3&offset=2''
+curl --location --request GET 'https://klaarbanks.shvm.dev/api/branches?q=Bangalore&limit=3&offset=2'
 ```
 **Result**
 ```json
